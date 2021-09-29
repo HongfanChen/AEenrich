@@ -10,7 +10,7 @@
 ###                                 ...                               ... 
 ###                                 Arthralgia                       1.25  
 ###     3. p: An exponent p to control the weight of the step. Default 0, which
-###          corresponds to standard Kolmogorov¨CSmirnov statistic.
+###          corresponds to standard Kolmogorov-Smirnov statistic.
 ###     4. zero: logical, if TRUE, calculate zero inflated KS score. If FALSE,
 ###         calculate KS score without zero indicator.
 ###
@@ -21,7 +21,7 @@
 ###                   Infections       0.46
 # 79: -------------------------------------------------------------------------
 get_ES = function(dd.group, data_Ratio, p, zero){
-  
+  . <- "Muted"
   # add zero to AE if it was not mentioned with the target vaccine
   ddF = data_Ratio %>%
     right_join(dd.group, by = "AE_NAME") %>%

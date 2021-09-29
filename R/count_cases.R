@@ -1,5 +1,5 @@
 
-#' The Count_cases function is used to convert data on the report level to
+#' The count_cases function is used to convert data on the report level to
 #' aggregated data, grouping by specified covariates.
 #' 
 #' @param data a data.frame with at least 3 columns, consisting data on the report
@@ -12,10 +12,10 @@
 #' @param covar_disc a character vector of categorical covariates.
 #' @param breaks a list consists of vectors used for creating specific bins to
 #' transform continuous covariates into categorical. Breaks Should have the same
-#' length as covar_cont. Given a vector of non-decreasing breakpoints in breaks[i],
-#' find the interval containing each element of covar_cont[i]; i.e., for each index
-#' j in breaks[i], value j is assigned to covar_cont[i] if and only if breaks[i][j]
-#' ??? covar_cont[i] < breaks[i][j+1].
+#' length as covar_cont. Given a vector of non-decreasing breakpoints in `breaks[i]`,
+#' find the interval containing each element of `covar_cont[i]`; i.e., for each index
+#' j in `breaks[i]`, value j is assigned to `covar_cont[i]` if and only if `breaks[i][j]`
+#' `\leq covar_cont[i] < breaks[i][j+1]`.
 #' @param min_AE the minimum number of cases required to start counting
 #' for a specific AE. Default 10.
 #' @param cores the number of cores to use for parallel execution.
@@ -32,15 +32,17 @@
 #' }
 #' 
 #' @examples
-#' count_cases(data = covid1, drug.case = "COVID19", drug.control = "OTHER",
-#'             covar_cont = c("AGE"), covar_disc = c("SEX"),
-#'             breaks = list(c(16,30,50,65,120)))
+#' 
+#' 
+#' # count_cases(data = covid1, drug.case = "COVID19", drug.control = "OTHER",
+#' #             covar_cont = c("AGE"), covar_disc = c("SEX"),
+#' #             breaks = list(c(16,30,50,65,120)))
+#'             
 
-
-# 79: -------------------------------------------------------------------------
 count_cases = function(data, drug.case = drug.case, drug.control = NULL,
                        covar_disc = NULL, covar_cont = NULL, breaks = NULL,
                        cores = detectCores(), min_AE = 10){
+  . <- "Muted"
   data = as_tibble(data) 
   ## check the breaks-covar_cont pairs
   if(!length(breaks) == length(covar_cont)){
