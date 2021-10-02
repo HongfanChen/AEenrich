@@ -1,6 +1,8 @@
 
-#' The count_cases function is used to convert data on the report level to
-#' aggregated data, grouping by specified covariates.
+#' Convert data on the report level to aggregated data.
+#' 
+#' The count_cases function is used to convert data on the report
+#' level to aggregated data, grouping by specified covariates.
 #' 
 #' @param data a data.frame with at least 3 columns, consisting data on the report
 #' level, having ID, Drug type and AE name as the first 3 columns with
@@ -15,7 +17,7 @@
 #' length as covar_cont. Given a vector of non-decreasing breakpoints in `breaks[i]`,
 #' find the interval containing each element of `covar_cont[i]`; i.e., for each index
 #' j in `breaks[i]`, value j is assigned to `covar_cont[i]` if and only if `breaks[i][j]`
-#' `\leq covar_cont[i] < breaks[i][j+1]`.
+#' `<= covar_cont[i] < breaks[i][j+1]`.
 #' @param min_AE the minimum number of cases required to start counting
 #' for a specific AE. Default 10.
 #' @param cores the number of cores to use for parallel execution.
@@ -32,7 +34,6 @@
 #' }
 #' 
 #' @examples
-#' 
 #' 
 #' # count_cases(data = covid1, drug.case = "COVID19", drug.control = "OTHER",
 #' #             covar_cont = c("AGE"), covar_disc = c("SEX"),
@@ -165,7 +166,7 @@ count_cases = function(data, drug.case = drug.case, drug.control = NULL,
   return(results)
 }
 
-#' @description The Count_cases function is used to convert data on the report
+#' @description The count_cases function is used to convert data on the report
 #' level to aggregated data, grouping by specified covariates.
 #' 
 #' Use the function `count_cases` to convert report level data into aggregated data.

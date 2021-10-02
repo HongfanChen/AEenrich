@@ -2,8 +2,7 @@
 % Please edit documentation in R/count_cases.R
 \name{count_cases}
 \alias{count_cases}
-\title{The count_cases function is used to convert data on the report level to
-aggregated data, grouping by specified covariates.}
+\title{Convert data on the report level to aggregated data.}
 \usage{
 count_cases(
   data,
@@ -35,7 +34,7 @@ transform continuous covariates into categorical. Breaks Should have the same
 length as covar_cont. Given a vector of non-decreasing breakpoints in \code{breaks[i]},
 find the interval containing each element of \code{covar_cont[i]}; i.e., for each index
 j in \code{breaks[i]}, value j is assigned to \code{covar_cont[i]} if and only if \code{breaks[i][j]}
-\verb{\\leq covar_cont[i] < breaks[i][j+1]}.}
+\verb{<= covar_cont[i] < breaks[i][j+1]}.}
 
 \item{cores}{the number of cores to use for parallel execution.}
 
@@ -55,11 +54,10 @@ The returned data.frame contains the following columns:
 }
 }
 \description{
-The count_cases function is used to convert data on the report level to
-aggregated data, grouping by specified covariates.
+The count_cases function is used to convert data on the report
+level to aggregated data, grouping by specified covariates.
 }
 \examples{
-
 
 # count_cases(data = covid1, drug.case = "COVID19", drug.control = "OTHER",
 #             covar_cont = c("AGE"), covar_disc = c("SEX"),
